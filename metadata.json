@@ -1,0 +1,13 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Id": "org.cachyos.widgetsbar",
+        "Name": "Widgets Bar",
+        "Description": "CPU, RAM, GPU, temperaturas, red, sistema, multimedia y notas",
+        "Icon": "utilities-system-monitor",
+        "Authors": [{ "Name": "rich" }],
+        "Category": "System Information"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "FormFactors": ["desktop"]
+}
