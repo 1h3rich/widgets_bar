@@ -1,5 +1,8 @@
 # widgets_bar
 
+> ⚠️ **Solo Linux.** Hecho y probado en CachyOS (Arch Linux) + KDE Plasma 6. No
+> se sabe si funciona en otras distros de Linux — no funciona en Windows ni macOS.
+
 Widget nativo de KDE Plasma 6 (plasmoid) para el escritorio: CPU/RAM, GPU/VRAM, temperaturas + RPM de ventiladores, disco, red, info del sistema, control multimedia (MPRIS) y notas rápidas.
 
 Versión anterior: app PyQt6 independiente (ventana flotante que simulaba un widget). Este es un plasmoid real, instalable desde "Añadir widgets" de Plasma — el código PyQt6 sigue disponible en el historial de este repo.
