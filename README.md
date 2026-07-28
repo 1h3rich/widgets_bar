@@ -49,6 +49,10 @@ Pensada para AMD (lee `gpu_busy_percent` de `/sys/class/drm`, sensores `amdgpu`/
 
 KDE Plasma 6, Python 3, `psutil`, `lm-sensors` (comando `sensors`), un reproductor con soporte MPRIS si quieres el bloque de multimedia.
 
+## Actualizaciones
+
+- **Icono de pausa del bloque multimedia dibujado a mano** en vez de con el glifo de fuente `⏸`: ese carácter tiene un peso/estilo de trazo distinto al de `◀◀`/`▶`/`▶▶`, así que quedaba visualmente descolocado. Ahora `MediaButton.qml` dibuja dos barras (`Rectangle`) cuando el botón representa "pausa", manteniendo el resto de iconos como texto — ver `contents/ui/blocks/MediaButton.qml`.
+
 ---
 
 Hecho con ayuda de IA (Claude Code). Puede tener fallos en hardware o configuraciones distintas a las mías (otra GPU, un solo monitor, otra versión de Plasma) — si algo no funciona, lo primero es mirar `contents/code/datasource.py`, que es donde están las rutas específicas de sensores.
