@@ -14,6 +14,7 @@ Versión anterior: app PyQt6 independiente (ventana flotante que simulaba un wid
 - Botón de fijar (📌): mantiene la barra desplegada de forma permanente, ignorando el auto-ocultado.
 - Fondo translúcido con esquinas redondeadas, compuesto directamente por Plasma Shell (sin hacks de blur de ventana).
 - Botón de notas: panel con auto-guardado (persistido vía `Qt.labs.settings`/`QtCore.Settings`).
+- Botón de procesos: panel con las apps que corren en segundo plano (unidades de `app.slice` de `systemd --user`), con su RAM y número de procesos. Clic izquierdo las cierra con SIGTERM; clic derecho las fuerza con SIGKILL. Las apps Chromium/Electron, que reparten sus procesos en varios scopes, se muestran agrupadas como una sola.
 
 ## Instalar
 
@@ -37,6 +38,8 @@ Luego, desde el escritorio: clic derecho → **Añadir o gestionar widgets** →
 - `contents/ui/FullRepresentation.qml` — tarjeta deslizante, zona de hover, recolección de datos, layout de bloques
 - `contents/ui/blocks/` — un componente QML por bloque de datos (CPU/RAM, GPU/VRAM, temperaturas, disco, red, sistema, multimedia, notas)
 - `contents/ui/NotesPopup.qml` — panel de notas con auto-guardado
+- `contents/ui/ProcesosPopup.qml` — panel de apps en segundo plano (listar y cerrar)
+- `contents/code/procesos.py` — lista (`list`) y detiene (`stop UNIT [force]`) las unidades de `app.slice`
 - `contents/ui/Theme.js` — paleta y helpers de color compartidos
 - `contents/code/datasource.py` — recolector de estadísticas del sistema, invocado periódicamente vía `Plasma5Support.DataSource` (engine "executable")
 

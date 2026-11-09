@@ -16,7 +16,7 @@ Item {
     readonly property real contentWidth: Theme.BAR_W - 8
     readonly property real notesW: 56
     readonly property real colW1: (contentWidth - 3 * 1) / 4
-    readonly property real colW2: (contentWidth - 3 * 1 - notesW) / 3
+    readonly property real colW2: (contentWidth - 4 * 1 - 2 * notesW) / 3
 
     readonly property string scriptPath: {
         var u = Qt.resolvedUrl("../code/datasource.py").toString()
@@ -66,7 +66,7 @@ Item {
         id: hideTimer
         interval: Theme.HIDE_DELAY
         onTriggered: {
-            if (!notesPopup.opened && !root.pinned) {
+            if (!notesPopup.opened && !procesosPopup.opened && !root.pinned) {
                 root.revealed = false
             }
         }
@@ -187,9 +187,20 @@ Item {
                         Layout.preferredWidth: root.colW2
                     }
                     Separator {}
+                    ProcesosButton {
+                        Layout.preferredWidth: root.notesW
+                        onClicked: {
+                            procesosPopup.opened = !procesosPopup.opened
+                            if (procesosPopup.opened) notesPopup.opened = false
+                        }
+                    }
+                    Separator {}
                     NotesButton {
                         Layout.preferredWidth: root.notesW
-                        onClicked: notesPopup.opened = !notesPopup.opened
+                        onClicked: {
+                            notesPopup.opened = !notesPopup.opened
+                            if (notesPopup.opened) procesosPopup.opened = false
+                        }
                     }
                 }
             }
@@ -200,6 +211,13 @@ Item {
         id: notesPopup
         parent: root
         x: 0
+        y: Theme.TRIGGER_ABOVE - height - 8
+    }
+
+    ProcesosPopup {
+        id: procesosPopup
+        parent: root
+        x: Theme.BAR_W - width - 70
         y: Theme.TRIGGER_ABOVE - height - 8
     }
 }
